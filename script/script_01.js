@@ -29,3 +29,17 @@ const bikeList = [{
 const [, {bikeName, weightInKg}] = bikeList;  
 
 console.log(`La bici con peso minore tra quelle selezionate è la: ${bikeName}, che pesa solo: ${weightInKg}kg!`);
+
+const weightBikeList = [];
+
+for (let i = 0; i < bikeList.length; i++){
+    const element = bikeList[i];
+    
+    weightBikeList.push(element.weightInKg);
+}
+// array pesi bici
+console.log(weightBikeList);
+// estraggo dal mio array il numero/peso più piccolo
+const minWeight = Math.min(...weightBikeList);
+
+console.log(`${minWeight} è il peso della bici più leggera tra quelle della lista`);
