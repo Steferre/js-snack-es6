@@ -13,16 +13,16 @@ function randomNumber(min, max) {
 
 // Usando il metodo con il filter()
 /**
- * Funzione che ritorna un array di numeri, compresi tra il numero A e il numero B
+ * Funzione che ritorna un array, compresi tra l'indice A e l'indice B
  * con A < B
  * @param {[]} list 
- * @param {number} numA 
- * @param {number} numB 
+ * @param {number} indexA 
+ * @param {number} indexB 
  */
-const getNumberBetween = (list, numA, numB) => {
+const getElementBetween = (list, indexA, indexB) => {
     
-    let newList = list.filter((element) => {
-        if (element > numA && element < numB) {
+    let newList = list.filter((element, index) => {
+        if (index >= indexA && index <= indexB) {
             return true;
         }
         return false;
@@ -31,15 +31,15 @@ const getNumberBetween = (list, numA, numB) => {
     return newList;
 } 
 // Usando il metodo con il forEach()
-function otherGetNumberBetween(otherList, num1, num2) {
+function otherGetElementBetween(otherList, indA, indB) {
     const newArray = [];
 
-    otherList.forEach(element => {
-        if(num1 < element && num2 > element) {
+    otherList.forEach((element, index) => {
+        if(index >= indA && index <= indB){
             newArray.push(element);
-        } 
+        }
     });
-
+    
     return newArray;
 }
 
@@ -53,29 +53,15 @@ for(let i = 0; i < myLength; i++) {
     const numX = randomNumber(0, 101);
 
     if(myList.indexOf(numX) === -1) {
-        myList.push(numX);
+        myList.push(numX);   
         
+    } else {
+        i--;
     }
-
 } 
 
 console.log(myList);
 
-console.log(getNumberBetween(myList, 5, 62));
+console.log(getElementBetween(myList, 5, 9));
 
-console.log(otherGetNumberBetween(myList, 5, 62));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(otherGetElementBetween(myList, 1, 5));
