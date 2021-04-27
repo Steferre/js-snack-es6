@@ -26,10 +26,36 @@ const bikeList = [{
     }
 ];
 
+function findLighterBike(arrayList) {
+    let lighterBike;
+
+
+    for (let i = 0; i < arrayList.length; i++) {
+        const { bikeName, weightInKg } = arrayList[i];
+
+        if (!lighterBike || weightInKg < lighterBike.weightInKg) {
+            lighterBike = {
+                bikeName,
+                weightInKg
+            }
+        }
+
+    }
+
+    return lighterBike;
+}
+
+console.log(findLighterBike(bikeList));
+
+
 const [, {bikeName, weightInKg}] = bikeList;  
 
 console.log(`La bici con peso minore tra quelle selezionate è la: ${bikeName}, che pesa solo: ${weightInKg}kg!`);
 
+
+
+
+/*
 const weightBikeList = [];
 
 for (let i = 0; i < bikeList.length; i++){
@@ -43,3 +69,4 @@ console.log(weightBikeList);
 const minWeight = Math.min(...weightBikeList);
 
 console.log(`${minWeight} è il peso della bici più leggera tra quelle della lista`);
+*/
